@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 const {MessageCryptor} = require("./encryption");
 
 const PORT = 4000
-const URL = "mongodb+srv://nehorai444:5wCw23dp4TWgIyyM@cluster0.mgyu73p.mongodb.net/trivia" //addHereYourConnectionStringOfMongoDB
+const URL = "addHereYourConnectionStringOfMongoDB/trivia";
 
 app.use(express.static(path.join(__dirname, './mern/build')))
 app.use(bodyParser.urlencoded({extended:false}))
