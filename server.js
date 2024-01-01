@@ -7,24 +7,24 @@ const { v4: uuidv4 } = require('uuid');
 
 const {MessageCryptor} = require("./encryption");
 
-const PORT = 4000
+const PORT = 4000;
 const URL = "addHereYourConnectionStringOfMongoDB/trivia";
 
-app.use(express.static(path.join(__dirname, './mern/build')))
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, './mern/build')));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 const userScheme = new db.Schema({
     userId: String,
     userName: String,
     password: String,
     grades: Array
-})
-const userModel = new db.model("users", userScheme)
+});
+const userModel = new db.model("users", userScheme);
 
 db.connect(URL).then(()=>{
     console.log("DB IS ON!")
-})
+});
 
 app.post("/api/register", async (req, res) => {
     const myCryptor = new MessageCryptor(32)
@@ -64,7 +64,7 @@ app.post("/api/user/add/grade",async (req, res) => {
     isExisting.grades.push(grade);
     await userModel.findOneAndUpdate({userName}, isExisting);
     res.json({status: 1, data: {msg: "Grade added"}, errors: []})
-})
+});
 
 app.post("/api/user/grades", async (req, res) => {
     let {userName} = req.body;
