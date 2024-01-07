@@ -6,7 +6,6 @@ Welcome to the MERN Trivia Quiz App! This project is a full-stack web applicatio
 ## Project Structure
 
 ```plaintext
-.
 ├── encryption.js
 ├── mern
 │   ├── package.json
